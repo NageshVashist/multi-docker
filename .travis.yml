@@ -2,19 +2,19 @@ sudo: require
 services:
   - Docker
 
-  before_install:
-    - docker build -t nageshvashist/react-test -f ./client/Dockerfile.dev ./client
+before_install:
+  - docker build -t nageshvashist/react-test -f ./client/Dockerfile.dev ./client
   
-  script:
-    - docker run nageshvashist/react-test npm test -- --coverage
+script:
+  - docker run nageshvashist/react-test npm test -- --coverage
   
-  after_success:
-    - docker build -t nageshvashist/multi-client ./client
-    - docker build -t nageshvashist/multi-nginx ./nginx
-    - docker build -t nageshvashist/multi-server ./server
-    - docker build -t nageshvashist/multi-worker ./worker
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    - docker push nageshvashist/multi-client
-    - docker push nageshvashist/multi-nginx
-    - docker push nageshvashist/multi-server
-    - docker push nageshvashist/multi-worker 
+after_success:
+  - docker build -t nageshvashist/multi-client ./client
+  - docker build -t nageshvashist/multi-nginx ./nginx
+  - docker build -t nageshvashist/multi-server ./server
+  - docker build -t nageshvashist/multi-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push nageshvashist/multi-client
+  - docker push nageshvashist/multi-nginx
+  - docker push nageshvashist/multi-server
+  - docker push nageshvashist/multi-worker 
