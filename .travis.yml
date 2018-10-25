@@ -17,7 +17,7 @@ after_success:
   - docker push nageshvashist/multi-client
   - docker push nageshvashist/multi-nginx
   - docker push nageshvashist/multi-server
-  - docker push nageshvashist/multi-worker 
+  - docker push nageshvashist/multi-worker
 
 deploy:
   provider: elasticbeanstalk
