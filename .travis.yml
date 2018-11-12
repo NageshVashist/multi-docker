@@ -21,11 +21,11 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
-  regin: ap-south-1
-  app: multi-docker-v1
-  env: multi-docker-v1
-  bucket_name: elasticbeanstalk-ap-south-1-842693259954
-  bucket_path: multi-docker_v1
+  regin: "ap-south-1"
+  app: "multi-docker-v1"
+  env: "multi-docker-v1"
+  bucket_name: "elasticbeanstalk-ap-south-1-842693259954"
+  bucket_path: "multi-docker_v1"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
